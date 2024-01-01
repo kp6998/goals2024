@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>New Year Wishes Form</title>
+    <!-- Bootstrap CSS with a blue color theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #cce5ff; /* Light blue background for a festive look */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #007bff; /* Bootstrap's primary blue color for headings */
+        }
+
+        .form-group label {
+            color: #007bff; /* Blue color for labels */
+        }
+
+        #submit-btn {
+            background-color: #007bff; /* Bootstrap's primary blue color for the button */
+            color: #fff;
+            border: none;
+        }
+
+        #submit-btn:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Happy New Year</h1>
+        <h2>Enter your goals - we will remind you end of the year</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Your Phone Number</label>
+                <input type="text" class="form-control" id="number" placeholder="Enter your number" required>
+            </div>
+            <div class="goals-container">
+                <!-- Goal Lists will be dynamically added here -->
+            </div>
+            <button type="button" class="btn btn-primary add-goal-btn" onclick="addGoal()" style="margin-bottom: 10px;">Add Goal</button>
+            <button type="submit" class="btn btn-lg btn-block" id="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<script>
+    
+    var goalCount = 0;
+    addGoal();
+    function addGoal() {
+        goalCount++;
+        var newGoalList = `
+            <div class="form-group goalsList">
+                <label for="goal${goalCount}">Your goal - ${goalCount}</label>
+                <input type="text" class="form-control" id="goal${goalCount}" placeholder="Enter your goal ${goalCount}" required>
+            </div>
+        `;
+        $(".goals-container").append(newGoalList);
+    }
+
+    $('#submit-btn').click(function(){
+        alert("Your goal is successfully set, We 'll remind you end of the year!\nOnce again happy new year 2024!😊");
+    });
+</script>
